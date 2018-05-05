@@ -1,5 +1,16 @@
+@import url(https://fonts.googleapis.com/css?family=Roboto);
+
+html {
+    min-width: 320px;
+    box-sizing: border-box;
+}
+
+*,
+*:before,
+*:after {
+    box-sizing: inherit;
+}
+
 body {
-  margin: 0;
-  padding: 0;
-  font-family: sans-serif;
+    font-family: Roboto;
 }
