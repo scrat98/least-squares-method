@@ -78,7 +78,6 @@ export class ApproxFunction {
                 precision: 4
             })
         });
-        console.log(a, b, x, math.multiply(a, x));
 
         return x.reduce((coef, el, index) => {
             const variable = this.composition[index].coef;
@@ -102,35 +101,131 @@ export class ApproxFunction {
 /**
  * y = a*x^2 + b*x + c
  */
-export class CustomApproxFunction1 extends ApproxFunction {
+export function CustomApproxFunction1() {
+    const approxFunc = 'y = a*x^2 + b*x + c';
+    const composition = [{
+        f: 'x^2',
+        coef: 'a',
+        katex: '{x_i}^2'
+    }, {
+        f: 'x',
+        coef: 'b',
+        katex: '{x_i}'
+    }, {
+        f: '1',
+        coef: 'c',
+        katex: '1'
+    }];
+
+    return new ApproxFunction(approxFunc, composition);
 }
 
 /**
  * y = a/x^2 + b/x + c
  */
-export class CustomApproxFunction2 extends ApproxFunction {
+export function CustomApproxFunction2() {
+    const approxFunc = 'y = a/x^2 + b/x + c';
+    const composition = [{
+        f: '1/x^2',
+        coef: 'a',
+        katex: '\\frac{1}{{x_i}^2}'
+    }, {
+        f: '1/x',
+        coef: 'b',
+        katex: '\\frac{1}{x_i}'
+    }, {
+        f: '1',
+        coef: 'c',
+        katex: '1'
+    }];
+
+    return new ApproxFunction(approxFunc, composition);
 }
 
 /**
  * y = a*x + b*e^(-x) + c
  */
-export class CustomApproxFunction3 extends ApproxFunction {
+export function CustomApproxFunction3() {
+    const approxFunc = 'y = a*x + b*e^(-x) + c';
+    const composition = [{
+        f: 'x',
+        coef: 'a',
+        katex: '{x_i}'
+    }, {
+        f: 'e^(-x)',
+        coef: 'b',
+        katex: 'e^{-x_i}'
+    }, {
+        f: '1',
+        coef: 'c',
+        katex: '1'
+    }];
+
+    return new ApproxFunction(approxFunc, composition);
 }
 
 /**
  * y = a/x + b*e^x + c
  */
-export class CustomApproxFunction4 extends ApproxFunction {
+export function CustomApproxFunction4() {
+    const approxFunc = 'y = a/x + b*e^x + c';
+    const composition = [{
+        f: '1/x',
+        coef: 'a',
+        katex: '\\frac{1}{x_i}'
+    }, {
+        f: 'e^(x)',
+        coef: 'b',
+        katex: 'e^{x_i}'
+    }, {
+        f: '1',
+        coef: 'c',
+        katex: '1'
+    }];
+
+    return new ApproxFunction(approxFunc, composition);
 }
 
 /**
  * y = a*x*ln(x) + b*e^x + c
  */
-export class CustomApproxFunction5 extends ApproxFunction {
+export function CustomApproxFunction5() {
+    const approxFunc = 'y = a*x*log(x, e) + b*e^x + c';
+    const composition = [{
+        f: 'x*log(x, e)',
+        coef: 'a',
+        katex: 'x\\ln{x_i}'
+    }, {
+        f: 'e^(x)',
+        coef: 'b',
+        katex: 'e^{x_i}'
+    }, {
+        f: '1',
+        coef: 'c',
+        katex: '1'
+    }];
+
+    return new ApproxFunction(approxFunc, composition);
 }
 
 /**
  * y = a*sqrt(x) + b*sin(x) + c
  */
-export class CustomApproxFunction6 extends ApproxFunction {
+export function CustomApproxFunction6() {
+    const approxFunc = 'y = a*sqrt(x) + b*sin(x) + c';
+    const composition = [{
+        f: 'sqrt(x)',
+        coef: 'a',
+        katex: '\\sqrt{x_i}'
+    }, {
+        f: 'sin(x)',
+        coef: 'b',
+        katex: '\\sin{x_i}'
+    }, {
+        f: '1',
+        coef: 'c',
+        katex: '1'
+    }];
+
+    return new ApproxFunction(approxFunc, composition);
 }
