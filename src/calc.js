@@ -99,10 +99,10 @@ export class ApproxFunction {
 }
 
 /**
- * y = a*x^2 + b*x + c
+ * a*x^2 + b*x + c
  */
 export function CustomApproxFunction1() {
-    const approxFunc = 'y = a*x^2 + b*x + c';
+    const approxFunc = 'a*x^2 + b*x + c';
     const composition = [{
         f: 'x^2',
         coef: 'a'
@@ -118,10 +118,10 @@ export function CustomApproxFunction1() {
 }
 
 /**
- * y = a/x^2 + b/x + c
+ * a/x^2 + b/x + c
  */
 export function CustomApproxFunction2() {
-    const approxFunc = 'y = a/x^2 + b/x + c';
+    const approxFunc = 'a/x^2 + b/x + c';
     const composition = [{
         f: '1/x^2',
         coef: 'a'
@@ -137,10 +137,10 @@ export function CustomApproxFunction2() {
 }
 
 /**
- * y = a*x + b*e^-x + c
+ * a*x + b*e^-x + c
  */
 export function CustomApproxFunction3() {
-    const approxFunc = 'y = a*x + b*e^-x + c';
+    const approxFunc = 'a*x + b*e^-x + c';
     const composition = [{
         f: 'x',
         coef: 'a'
@@ -156,10 +156,10 @@ export function CustomApproxFunction3() {
 }
 
 /**
- * y = a/x + b*e^x + c
+ * a/x + b*e^x + c
  */
 export function CustomApproxFunction4() {
-    const approxFunc = 'y = a/x + b*e^x + c';
+    const approxFunc = 'a/x + b*e^x + c';
     const composition = [{
         f: '1/x',
         coef: 'a'
@@ -175,10 +175,10 @@ export function CustomApproxFunction4() {
 }
 
 /**
- * y = a*x*ln(x) + b*e^x + c
+ * a*x*ln(x) + b*e^x + c
  */
 export function CustomApproxFunction5() {
-    const approxFunc = 'y = a*x*log(x, e) + b*e^x + c';
+    const approxFunc = 'a*x*log(x, e) + b*e^x + c';
     const composition = [{
         f: 'x*log(x, e)',
         coef: 'a'
@@ -194,10 +194,10 @@ export function CustomApproxFunction5() {
 }
 
 /**
- * y = a*sqrt(x) + b*sin(x) + c
+ * a*sqrt(x) + b*sin(x) + c
  */
 export function CustomApproxFunction6() {
-    const approxFunc = 'y = a*sqrt(x) + b*sin(x) + c';
+    const approxFunc = 'a*sqrt(x) + b*sin(x) + c';
     const composition = [{
         f: 'sqrt(x)',
         coef: 'a'

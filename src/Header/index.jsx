@@ -30,19 +30,13 @@ class Header extends Component {
         const xValues = xValue.split(' ');
         const yValues = yValue.split(' ');
 
-        console.log(xValues, yValues);
-
         const zip = _.zip(xValues, yValues);
         const points = zip.map((el) => {
-            console.log(el, el[0], el[1]);
-            const obj = {
+            return {
                 x: el[0],
                 y: el[1]
             };
-            console.log(obj);
-            return obj;
         });
-        console.log(zip, points);
         this.props.setPoints(points);
     };
 
