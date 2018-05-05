@@ -13,8 +13,8 @@ const _ = require('lodash');
 
 class Header extends Component {
     state = {
-        xValue: null,
-        yValue: null
+        xValue: '0.034 0.394 0.754 1.114 1.474 1.833 2.193 2.553 2.913',
+        yValue: '2.156 2.988 3.377 3.708 3.802 3.900 4.067 4.129 4.171'
     };
 
     setXValues = (e) => {
@@ -42,7 +42,7 @@ class Header extends Component {
             console.log(obj);
             return obj;
         });
-        console.error(zip, points);
+        console.log(zip, points);
         this.props.setPoints(points);
     };
 
@@ -56,6 +56,7 @@ class Header extends Component {
                     <Row middle="xs">
                         <Col xs={5}>
                             <TextField
+                                value={this.state.xValue}
                                 onChange={this.setXValues}
                                 floatingLabelText="Значения x через пробел"
                                 multiLine={true}
@@ -66,6 +67,7 @@ class Header extends Component {
 
                         <Col xs={5}>
                             <TextField
+                                value={this.state.yValue}
                                 onChange={this.setYValues}
                                 floatingLabelText="Значения y через пробел"
                                 multiLine={true}
