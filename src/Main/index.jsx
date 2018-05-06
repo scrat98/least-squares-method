@@ -1,6 +1,6 @@
 import React from 'react';
 
-import {Grid, Row, Col} from "react-flexbox-grid";
+import {Grid} from "react-flexbox-grid";
 
 import {
     CustomApproxFunction1,
