@@ -56,11 +56,13 @@ export function getChartData(func, points) {
 
     return {
         datasets: [{
+            label: "origin",
             borderColor: color.blue,
             backgroundColor: helpers.color(color.blue).alpha(0.2).rgbString(),
             showLine: false,
             data: points
         }, {
+            label: "approx",
             borderColor: color.red,
             backgroundColor: helpers.color(color.red).alpha(0.2).rgbString(),
             showLine: true,
