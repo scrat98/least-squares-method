@@ -1,7 +1,9 @@
 import React, {Component} from 'react';
 
 import 'katex/dist/katex.min.css';
-import {BlockMath} from 'react-katex';
+import {BlockMath, InlineMath} from 'react-katex';
+
+const math = require('mathjs');
 
 class ApproxSolution extends Component {
     render() {
@@ -11,11 +13,24 @@ class ApproxSolution extends Component {
 
         return (
             <React.Fragment>
-                <div>{JSON.stringify(solution.approxFunc)}</div>
-                <div>{JSON.stringify(solution.composition)}</div>
+                <BlockMath>{math.parse(solution.approxFunc).toTex()}</BlockMath>
+                <div>
+                    {solution.composition.map((func, index) => {
+                        return <InlineMath>{`\\phi_${index} = ${math.parse(func.f).toTex()}`}</InlineMath>
+                    })}
+                </div>
                 <BlockMath math={solution.linearSystem}/>
                 <BlockMath math={solution.simplifiedSystem}/>
-                <div>{JSON.stringify(solution.solution)}</div>
+                <div>
+                    {Object.entries(solution.solution.coef).map((el) => {
+                        const coef = el[0];
+                        const value = el[1];
+                        return <InlineMath>{`${coef} = ${value}`}</InlineMath>
+                    })
+                    }
+                    <BlockMath>{`y = ${math.parse(solution.solution.func).toTex()}`}</BlockMath>
+                    <BlockMath>{`\\sigma = ${solution.solution.discrepancy}`}</BlockMath>
+                </div>
             </React.Fragment>
         )
     }
