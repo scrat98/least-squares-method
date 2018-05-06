@@ -33,8 +33,8 @@ class Header extends Component {
 
     setPoints = () => {
         const {xValue, yValue} = this.state;
-        const xValues = xValue.split(' ');
-        const yValues = yValue.split(' ');
+        const xValues = xValue.trim().replace(',', '.').split(' ');
+        const yValues = yValue.trim().replace(',', '.').split(' ');
 
         const zip = _.zip(xValues, yValues);
         const points = zip.map((el) => {

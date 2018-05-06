@@ -12,21 +12,33 @@ import {
 } from "../calc";
 import ApproxSolution from "./ApproxSolution";
 
-export default ({points, enabledApproxFunc}) => (
+export default ({points, enabledApproxFunc, throwError}) => (
     <main>
         <Grid>
-            <ApproxSolution approxFunc={CustomApproxFunction1()} points={points}
-                            enabled={enabledApproxFunc.func1}/>
-            <ApproxSolution approxFunc={CustomApproxFunction2()} points={points}
-                            enabled={enabledApproxFunc.func2}/>
-            <ApproxSolution approxFunc={CustomApproxFunction3()} points={points}
-                            enabled={enabledApproxFunc.func3}/>
-            <ApproxSolution approxFunc={CustomApproxFunction4()} points={points}
-                            enabled={enabledApproxFunc.func4}/>
-            <ApproxSolution approxFunc={CustomApproxFunction5()} points={points}
-                            enabled={enabledApproxFunc.func5}/>
-            <ApproxSolution approxFunc={CustomApproxFunction6()} points={points}
-                            enabled={enabledApproxFunc.func6}/>
+            <ApproxSolution approxFunc={CustomApproxFunction1()}
+                            points={points}
+                            enabled={enabledApproxFunc.func1}
+                            throwError={throwError}/>
+            <ApproxSolution approxFunc={CustomApproxFunction2()}
+                            points={points}
+                            enabled={enabledApproxFunc.func2}
+                            throwError={throwError}/>
+            <ApproxSolution approxFunc={CustomApproxFunction3()}
+                            points={points}
+                            enabled={enabledApproxFunc.func3}
+                            throwError={throwError}/>
+            <ApproxSolution approxFunc={CustomApproxFunction4()}
+                            points={points}
+                            enabled={enabledApproxFunc.func4}
+                            throwError={throwError}/>
+            <ApproxSolution approxFunc={CustomApproxFunction5()}
+                            points={points}
+                            enabled={enabledApproxFunc.func5}
+                            throwError={throwError}/>
+            <ApproxSolution approxFunc={CustomApproxFunction6()}
+                            points={points}
+                            enabled={enabledApproxFunc.func6}
+                            throwError={throwError}/>
         </Grid>
     </main>
 );

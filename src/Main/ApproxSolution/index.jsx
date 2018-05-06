@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import Paper from 'material-ui/Paper';
+import RefreshIndicator from 'material-ui/RefreshIndicator';
 import {Scatter} from 'react-chartjs-2';
 
 import 'katex/dist/katex.min.css';
@@ -21,12 +22,52 @@ const CoefContainer = styled.div`
 `;
 
 class ApproxSolution extends Component {
-    render() {
-        const {points, approxFunc, enabled} = this.props;
-        if (points.length === 0 || !enabled) return null;
 
-        const solution = approxFunc.approx(points);
+    state = {
+        enabled: false,
+        charData: {},
+        solution: {}
+    };
+
+    static getDerivedStateFromProps(nextProps, prevState) {
+        const {points, approxFunc, enabled, throwError} = nextProps;
+
+        const tryApprox = (approx, points) => {
+            try {
+                return approx(points);
+            }
+            catch (e) {
+                return null;
+            }
+        };
+
+        if (points.length === 0 || !enabled) {
+            return {
+                enabled: false,
+                charData: {},
+                solution: {}
+            };
+        }
+
+        console.log(approxFunc, points);
+        const solution = tryApprox(approxFunc.approx, points);
+        console.log(solution);
+        if (!solution) {
+            throwError();
+            return prevState;
+        }
+
         const chartData = getChartData(solution.solution.func, points);
+        return {
+            enabled: true,
+            chartData,
+            solution
+        };
+    }
+
+    render() {
+        const {chartData, solution, enabled} = this.state;
+        if (!enabled) return null;
 
         return (
             <Paper style={{padding: '0.5rem', margin: '1rem 0'}}>
