@@ -1,6 +1,5 @@
 import React, {Component} from 'react';
 import Paper from 'material-ui/Paper';
-import RefreshIndicator from 'material-ui/RefreshIndicator';
 import {Scatter} from 'react-chartjs-2';
 
 import 'katex/dist/katex.min.css';
@@ -37,7 +36,6 @@ class ApproxSolution extends Component {
                 return approxFunc.approx(points);
             }
             catch (e) {
-                console.log(e);
                 return null;
             }
         };
