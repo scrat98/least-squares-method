@@ -8,6 +8,7 @@
     "mathjs": "^4.2.1",
     "normalize.css": "^8.0.0",
     "react": "^16.3.2",
+    "react-chartjs": "^1.2.0",
     "react-dom": "^16.3.2",
     "react-flexbox-grid": "^2.1.0",
     "react-katex": "^2.0.2",

@@ -3,7 +3,6 @@ import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 
 import Header from "./Header";
 import Main from "./Main";
-import Footer from "./Footer";
 
 class App extends Component {
     state = {
@@ -39,10 +38,6 @@ class App extends Component {
                     <Main
                         points={this.state.points}
                         enabledApproxFunc={this.state.enabledApproxFunc}/>
-                </MuiThemeProvider>
-
-                <MuiThemeProvider>
-                    <Footer/>
                 </MuiThemeProvider>
             </React.Fragment>
         );

@@ -1,10 +1,22 @@
 import React, {Component} from 'react';
+import Paper from 'material-ui/Paper';
+import Line from 'react-chartjs';
 
 import 'katex/dist/katex.min.css';
 import {BlockMath, InlineMath} from 'react-katex';
-import Chart from '../Chart';
+import styled from 'styled-components';
 
 const math = require('mathjs');
+
+const FunctionsContainer = styled.div`
+    display: flex;
+    justify-content: space-around;
+`;
+
+const CoefContainer = styled.div`
+    display: flex;
+    justify-content: space-around;
+`;
 
 class ApproxSolution extends Component {
     render() {
@@ -13,26 +25,26 @@ class ApproxSolution extends Component {
         const solution = approxFunc.approx(points);
 
         return (
-            <React.Fragment>
+            <Paper style={{padding: '0.5rem', margin: '1rem 0'}}>
                 <BlockMath>{math.parse(solution.approxFunc).toTex()}</BlockMath>
-                <div>
+                <FunctionsContainer>
                     {solution.composition.map((func, index) => {
                         return <InlineMath>{`\\phi_${index} = ${math.parse(func.f).toTex()}`}</InlineMath>
                     })}
-                </div>
+                </FunctionsContainer>
                 <BlockMath math={solution.linearSystem}/>
                 <BlockMath math={solution.simplifiedSystem}/>
-                <div>
-                    {Object.entries(solution.solution.coef).map((el) => {
+                <CoefContainer>
+                    {Object.entries(solution.solution.coef).map((el, index) => {
                         const coef = el[0];
                         const value = el[1];
                         return <InlineMath>{`${coef} = ${value}`}</InlineMath>
                     })
                     }
-                    <BlockMath>{`y = ${math.parse(solution.solution.func).toTex()}`}</BlockMath>
-                    <BlockMath>{`\\sigma = ${solution.solution.discrepancy}`}</BlockMath>
-                </div>
-            </React.Fragment>
+                </CoefContainer>
+                <BlockMath>{`y = ${math.parse(solution.solution.func).toTex()}`}</BlockMath>
+                <BlockMath>{`\\sigma = ${solution.solution.discrepancy}`}</BlockMath>
+            </Paper>
         )
     }
 }

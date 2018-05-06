@@ -56,6 +56,7 @@ class Header extends Component {
                     <Row middle="xs">
                         <Col xs={5}>
                             <TextField
+                                style={{margin: '1rem 0'}}
                                 value={this.state.xValue}
                                 onChange={this.setXValues}
                                 floatingLabelText="Значения x через пробел"
@@ -67,6 +68,7 @@ class Header extends Component {
 
                         <Col xs={5}>
                             <TextField
+                                style={{margin: '1rem 0'}}
                                 value={this.state.yValue}
                                 onChange={this.setYValues}
                                 floatingLabelText="Значения y через пробел"
@@ -82,9 +84,11 @@ class Header extends Component {
                                 primary={true}/>
                         </Col>
                     </Row>
+
                     <Row>
                         <Col xs={12} sm={4}>
                             <Toggle
+                                style={{padding: '0.5rem'}}
                                 name="func1"
                                 onToggle={this.enableApproxFunc}
                                 toggled={this.props.enabledApproxFunc.func1}
@@ -95,6 +99,7 @@ class Header extends Component {
 
                         <Col xs={12} sm={4}>
                             <Toggle
+                                style={{padding: '0.5rem'}}
                                 name="func2"
                                 onToggle={this.enableApproxFunc}
                                 toggled={this.props.enabledApproxFunc.func2}
@@ -106,6 +111,7 @@ class Header extends Component {
 
                         <Col xs={12} sm={4}>
                             <Toggle
+                                style={{padding: '0.5rem'}}
                                 name="func3"
                                 onToggle={this.enableApproxFunc}
                                 toggled={this.props.enabledApproxFunc.func3}
@@ -116,6 +122,7 @@ class Header extends Component {
 
                         <Col xs={12} sm={4}>
                             <Toggle
+                                style={{padding: '0.5rem'}}
                                 name="func4"
                                 onToggle={this.enableApproxFunc}
                                 toggled={this.props.enabledApproxFunc.func4}
@@ -126,6 +133,7 @@ class Header extends Component {
 
                         <Col xs={12} sm={4}>
                             <Toggle
+                                style={{padding: '0.5rem'}}
                                 name="func5"
                                 onToggle={this.enableApproxFunc}
                                 toggled={this.props.enabledApproxFunc.func5}
@@ -136,6 +144,7 @@ class Header extends Component {
 
                         <Col xs={12} sm={4}>
                             <Toggle
+                                style={{padding: '0.5rem'}}
                                 name="func6"
                                 onToggle={this.enableApproxFunc}
                                 toggled={this.props.enabledApproxFunc.func6}
