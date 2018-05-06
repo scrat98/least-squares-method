@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 
 import 'katex/dist/katex.min.css';
 import {BlockMath, InlineMath} from 'react-katex';
+import Chart from '../Chart';
 
 const math = require('mathjs');
 
