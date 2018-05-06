@@ -14,7 +14,15 @@ const _ = require('lodash');
 class Header extends Component {
     state = {
         xValue: '0.034 0.394 0.754 1.114 1.474 1.833 2.193 2.553 2.913',
-        yValue: '2.156 2.988 3.377 3.708 3.802 3.900 4.067 4.129 4.171'
+        yValue: '2.156 2.988 3.377 3.708 3.802 3.900 4.067 4.129 4.171',
+        enabledApproxFunc: {
+            func1: true,
+            func2: true,
+            func3: true,
+            func4: true,
+            func5: true,
+            func6: true
+        }
     };
 
     setXValues = (e) => {
@@ -23,6 +31,17 @@ class Header extends Component {
 
     setYValues = (e) => {
         this.setState({yValue: e.target.value});
+    };
+
+    enableApproxFunc = (event, enable) => {
+        const func = event.target.name;
+
+        this.setState((prevState) => {
+            const enabledApproxFunc = {...prevState.enabledApproxFunc, [func]: enable};
+            return {enabledApproxFunc}
+        }, () => {
+            this.props.setApproxFunc(this.state.enabledApproxFunc);
+        });
     };
 
     setPoints = () => {
@@ -79,49 +98,62 @@ class Header extends Component {
                     <Row>
                         <Col xs={12} sm={4}>
                             <Toggle
+                                name="func1"
+                                onToggle={this.enableApproxFunc}
+                                toggled={this.state.enabledApproxFunc.func1}
                                 label={<InlineMath math='{a}{x^2} + bx + c'/>}
                                 labelPosition="right"
-                                defaultToggled={true}
                             />
                         </Col>
 
                         <Col xs={12} sm={4}>
                             <Toggle
-                                label={<InlineMath math='\frac{a}{x^2} + \frac{b}{x} + c'/>}
+                                name="func2"
+                                onToggle={this.enableApproxFunc}
+                                toggled={this.state.enabledApproxFunc.func2}
+                                label={<InlineMath
+                                    math='\frac{a}{x^2} + \frac{b}{x} + c'/>}
                                 labelPosition="right"
-                                defaultToggled={true}
                             />
                         </Col>
 
                         <Col xs={12} sm={4}>
                             <Toggle
+                                name="func3"
+                                onToggle={this.enableApproxFunc}
+                                toggled={this.state.enabledApproxFunc.func3}
                                 label={<InlineMath math='a{x} + be^{-x} + c'/>}
                                 labelPosition="right"
-                                defaultToggled={true}
                             />
                         </Col>
 
                         <Col xs={12} sm={4}>
                             <Toggle
+                                name="func4"
+                                onToggle={this.enableApproxFunc}
+                                toggled={this.state.enabledApproxFunc.func4}
                                 label={<InlineMath math='\frac{a}{x} + be^{x} + c'/>}
                                 labelPosition="right"
-                                defaultToggled={true}
                             />
                         </Col>
 
                         <Col xs={12} sm={4}>
                             <Toggle
+                                name="func5"
+                                onToggle={this.enableApproxFunc}
+                                toggled={this.state.enabledApproxFunc.func5}
                                 label={<InlineMath math='a{x}\ln{x} + be^{x} + c'/>}
                                 labelPosition="right"
-                                defaultToggled={true}
                             />
                         </Col>
 
                         <Col xs={12} sm={4}>
                             <Toggle
+                                name="func6"
+                                onToggle={this.enableApproxFunc}
+                                toggled={this.state.enabledApproxFunc.func6}
                                 label={<InlineMath math='a\sqrt{x} + b\sin{x} + c'/>}
                                 labelPosition="right"
-                                defaultToggled={true}
                             />
                         </Col>
                     </Row>

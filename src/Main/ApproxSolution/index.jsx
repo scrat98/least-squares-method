@@ -7,8 +7,8 @@ const math = require('mathjs');
 
 class ApproxSolution extends Component {
     render() {
-        const {points, approxFunc} = this.props;
-        if (points.length === 0) return null;
+        const {points, approxFunc, enabled} = this.props;
+        if (points.length === 0 || !enabled) return null;
         const solution = approxFunc.approx(points);
 
         return (

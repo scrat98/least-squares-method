@@ -7,22 +7,30 @@ import Footer from "./Footer";
 
 class App extends Component {
     state = {
-        points: []
+        points: [],
+        enabledApproxFunc: {}
     };
 
     setPoints = (points) => {
         this.setState({points})
     };
 
+    setApproxFunc = (enabledApproxFunc) => {
+        this.setState({enabledApproxFunc})
+    };
+
     render() {
         return (
             <React.Fragment>
                 <MuiThemeProvider>
-                    <Header setPoints={this.setPoints}/>
+                    <Header setPoints={this.setPoints}
+                            setApproxFunc={this.setApproxFunc}/>
                 </MuiThemeProvider>
 
                 <MuiThemeProvider>
-                    <Main points={this.state.points}/>
+                    <Main
+                        points={this.state.points}
+                        enabledApproxFunc={this.state.enabledApproxFunc}/>
                 </MuiThemeProvider>
 
                 <MuiThemeProvider>
