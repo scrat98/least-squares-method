@@ -32,11 +32,12 @@ class ApproxSolution extends Component {
     static getDerivedStateFromProps(nextProps, prevState) {
         const {points, approxFunc, enabled, throwError} = nextProps;
 
-        const tryApprox = (approx, points) => {
+        const tryApprox = (approxFunc, points) => {
             try {
-                return approx(points);
+                return approxFunc.approx(points);
             }
             catch (e) {
+                console.log(e);
                 return null;
             }
         };
@@ -49,9 +50,7 @@ class ApproxSolution extends Component {
             };
         }
 
-        console.log(approxFunc, points);
-        const solution = tryApprox(approxFunc.approx, points);
-        console.log(solution);
+        const solution = tryApprox(approxFunc, points);
         if (!solution) {
             throwError();
             return prevState;
